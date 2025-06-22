@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form - Water Quality</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='survey.css') }}">
+</head>
+<body>
+    <h2>Water Quality Survey Form</h2>
+    <form action="{{ url_for('survey') }}" method="POST">
+        <input type="text" name="ph" placeholder="Enter pH" required>
+        <input type="text" name="sulfate" placeholder="Enter Sulfate" required>
+        <input type="text" name="chloramines" placeholder="Enter Chloramines" required>
+        <input type="text" name="hardness" placeholder="Enter Hardness" required>
+        <input type="text" name="conductivity" placeholder="Enter Conductivity" required>
+        <input type="text" name="organic_carbon" placeholder="Enter Organic Carbon" required>
+        <input type="text" name="turbidity" placeholder="Enter Turbidity" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Display prediction result below the form -->
+    {% if prediction %}
+        <div class="prediction-result">
+            <h3>Prediction Result: {{ prediction }}</h3>
+        </div>
+    {% endif %}
+</body>
+</html>
+<!-- pH: 7.2 (Neutral, suitable for drinking)
+Sulphates (SO₄²⁻): 150 mg/L (Within acceptable limits for drinking water)
+Chloramines: 2.5 mg/L (Commonly used for disinfection, within safe drinking levels)
+Hardness: 180 mg/L (Moderate hardness, acceptable for consumption)
+Conductivity: 600 µS/cm (Moderate conductivity, indicating the presence of dissolved salts)
+Organic Carbon: 2.8 mg/L (Low organic carbon, indicating minimal organic contamination)
+Turbidity: 1.2 NTU (Low turbidity, clear water) -->

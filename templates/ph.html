@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pH Check - Water Quality</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ph.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>💧 Check Water Quality using pH 💧</h2>
+
+    <form action="{{ url_for('ph') }}" method="post" autocomplete="off">
+        <input type="text" name="ph" placeholder="Enter pH value" required>
+        <button type="submit">Check pH</button>
+    </form>
+
+    {% if result %}
+    <div id="result-container">
+        <h3>🔍 Analysis Result</h3>
+        <p>{{ result }}</p>
+    </div>
+
+    <!-- Buttons for Further Information -->
+    <div style="margin-top: 20px;">
+        <button class="info-button" id="uses-button">🌱 Other Uses</button>
+        <button class="info-button" id="purification-button">⚙️ Purification Methods</button>
+    </div>
+
+    <!-- Show Other Uses & Purification Methods based on pH -->
+    {% if ph_value %}
+        {% if ph_value < 6.5 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>Used in industries for chemical processes 🏭</li>
+                <li>Acidic soil treatment 🌱</li>
+                <li>Battery and dye manufacturing 🔋</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>Use pH neutralizers like limestone 🪨</li>
+                <li>Reverse osmosis filtration 💧</li>
+                <li>Mix with alkaline substances like baking soda 🧂</li>
+            </ul>
+        </div>
+
+        {% elif 6.5 <= ph_value <= 8.5 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>Ideal for drinking water 💦</li>
+                <li>Used in agriculture and irrigation 🌾</li>
+                <li>Common in fish tanks for balanced aquatic life 🐠</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>Regular filtration 🏡</li>
+                <li>Chlorination for disinfection 🦠</li>
+                <li>UV treatment for sterilization ☀️</li>
+            </ul>
+        </div>
+
+        {% else %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>Used in cleaning products 🧼</li>
+                <li>Common in swimming pools 🏊</li>
+                <li>Medical treatments like antacids 💊</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>Carbon filtration 🏗️</li>
+                <li>Dilution with acidic agents 🍋</li>
+                <li>Distillation to remove excess minerals 🔬</li>
+            </ul>
+        </div>
+        {% endif %}
+    {% endif %}
+    {% endif %}
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let usesButton = document.getElementById('uses-button');
+    let purificationButton = document.getElementById('purification-button');
+
+    if (usesButton) {
+        usesButton.addEventListener('click', function() {
+            let otherUses = document.getElementById('uses-container');
+            if (otherUses) {
+                otherUses.style.display = (otherUses.style.display === 'none' || otherUses.style.display === '') ? 'block' : 'none';
+            }
+        });
+    }
+
+    if (purificationButton) {
+        purificationButton.addEventListener('click', function() {
+            let purificationMethods = document.getElementById('purification-container');
+            if (purificationMethods) {
+                purificationMethods.style.display = (purificationMethods.style.display === 'none' || purificationMethods.style.display === '') ? 'block' : 'none';
+            }
+        });
+    }
+});
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Water Quality Prediction App</h1>
+    
+    <div class="form-section">
+        <ul>
+            <li class="button-container">
+                <a href="{{ url_for('survey') }}" class="main-button">Survey Form</a>
+                
+                <div class="flowchart">
+                    <button class="flowchart-btn" data-content="survey-explanation">Explanation</button>
+                    <button class="flowchart-btn" data-content="survey-tools">Tools Required</button>
+                    <button class="flowchart-btn" data-content="survey-features">Features Required</button>
+                </div>
+
+                <!-- Hidden Content for Survey Form -->
+                <div class="hidden-content" id="survey-explanation">
+                    <h3>Explanation</h3>
+                    <p>Survey form is for professionals who use IoT tools to collect water quality data.</p>
+                </div>
+                <div class="hidden-content" id="survey-tools">
+                    <h3>Tools Required</h3>
+                    <p>Sensors, Meters, IoT Devices</p>
+                </div>
+                <div class="hidden-content" id="survey-features">
+                    <h3>Features Required</h3>
+                    <p>Ability to measure pH, sulfate, chloramines, hardness, conductivity, organic carbon, turbidity</p>
+                </div>
+            </li>
+
+            <li class="button-container">
+                <a href="{{ url_for('tds') }}" class="main-button">TDS Check</a>
+                
+                <div class="flowchart">
+                    <button class="flowchart-btn" data-content="tds-explanation">Explanation</button>
+                    <button class="flowchart-btn" data-content="tds-tools">Tools Required</button>
+                    <button class="flowchart-btn" data-content="tds-features">Features Required</button>
+                </div>
+
+                <!-- Hidden Content for TDS Check -->
+                <div class="hidden-content" id="tds-explanation">
+                    <h3>Explanation</h3>
+                    <p>TDS check is for common people who can measure TDS levels using handheld meters or TDS testers.</p>
+                </div>
+                <div class="hidden-content" id="tds-tools">
+                    <h3>Tools Required</h3>
+                    <p>Handheld TDS meters, TDS testers</p>
+                </div>
+                <div class="hidden-content" id="tds-features">
+                    <h3>Features Required</h3>
+                    <p>Ability to measure TDS levels in water using handheld devices</p>
+                </div>
+            </li>
+
+            <li class="button-container">
+                <a href="{{ url_for('ph') }}" class="main-button">pH Check</a>
+                
+                <div class="flowchart">
+                    <button class="flowchart-btn" data-content="ph-explanation">Explanation</button>
+                    <button class="flowchart-btn" data-content="ph-tools">Tools Required</button>
+                    <button class="flowchart-btn" data-content="ph-features">Features Required</button>
+                </div>
+
+                <!-- Hidden Content for pH Check -->
+                <div class="hidden-content" id="ph-explanation">
+                    <h3>Explanation</h3>
+                    <p>pH check is for common people who can measure pH levels using pH strips or pH meters.</p>
+                </div>
+                <div class="hidden-content" id="ph-tools">
+                    <h3>Tools Required</h3>
+                    <p>pH Strips, pH Meters</p>
+                </div>
+                <div class="hidden-content" id="ph-features">
+                    <h3>Features Required</h3>
+                    <p>Ability to measure pH levels accurately for water safety assessment</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

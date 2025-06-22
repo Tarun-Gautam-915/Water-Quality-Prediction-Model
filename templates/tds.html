@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDS Check - Water Quality</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tds.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>💧 Check Water Quality using TDS</h2>
+    <form action="{{ url_for('tds') }}" method="post" autocomplete="off">
+        <input type="text" name="tds" placeholder="Enter TDS value" required>
+        <button type="submit">Check TDS</button>
+    </form>
+    
+
+    {% if result %}
+    <div id="result-container">
+        <h3>🔍 Analysis Result</h3>
+        <p>{{ result }}</p>
+    </div>
+
+        <!-- Buttons for Further Information -->
+        <div style="margin-top: 20px;">
+            <button class="info-button" id="uses-button">🌱 Other Uses</button>
+            <button class="info-button" id="purification-button">⚙️ Purification Methods</button>
+        </div>
+
+    {% if tds_value %}
+        {% if tds_value <= 50 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>✅ <span style="color: #4CAF50;">Excellent for drinking</span> - No treatment needed.</li>
+                <li>💧 Ideal for **infants & elderly**.</li>
+                <li>🏡 Used in **cooking and beverage preparation**.</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>✅ <span style="color: #4CAF50;">No filtration needed</span> - Water is already pure.</li>
+                <li>💦 **Natural minerals intact** for health benefits.</li>
+                <li>🔹 Store in **clean, covered containers**.</li>
+            </ul>
+        </div>
+    
+        {% elif 50 < tds_value <= 150 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>✅ <span style="color: #4CAF50;">Safe for drinking</span> - No purification required.</li>
+                <li>🥗 Best for **smooth digestion & health benefits**.</li>
+                <li>🍚 Suitable for **cooking and washing vegetables**.</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>✅ <span style="color: #4CAF50;">Minimal filtration</span> - Only for taste enhancement.</li>
+                <li>🔹 **Activated Carbon Filters** remove minor impurities.</li>
+                <li>💧 Boiling ensures **extra safety**.</li>
+            </ul>
+        </div>
+    
+        {% elif 150 < tds_value <= 300 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>⚠️ <span style="color: #FFC107;">Generally safe</span> but minor purification can improve taste.</li>
+                <li>🚰 Can be used for **showering & laundry**.</li>
+                <li>🌱 Good for **indoor plants and gardening**.</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>⚠️ <span style="color: #FFC107;">Basic filtration recommended</span>.</li>
+                <li>💧 **Reverse Osmosis (RO) filters** improve purity.</li>
+                <li>🛠️ **UV filtration** kills bacteria.</li>
+            </ul>
+        </div>
+    
+        {% elif 300 < tds_value <= 500 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>⚠️ <span style="color: #FF9800;">Acceptable for consumption</span>, but might taste slightly salty.</li>
+                <li>🛁 Can be used for **cleaning and personal hygiene**.</li>
+                <li>🏗️ Suitable for **construction & industrial purposes**.</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>⚠️ <span style="color: #FF9800;">Advanced purification advised</span>.</li>
+                <li>🛠️ **RO & UV filters** highly recommended.</li>
+                <li>🌊 **Distillation** enhances quality.</li>
+            </ul>
+        </div>
+    
+        {% elif 500 < tds_value <= 1000 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>❌ <span style="color: #F44336;">Not recommended for drinking</span>.</li>
+                <li>🧼 Best for **cleaning and washing clothes**.</li>
+                <li>🚜 Can be used for **agriculture & irrigation**.</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>❌ <span style="color: #F44336;">Not safe for drinking without strong purification</span>.</li>
+                <li>⚙️ **Industrial-level RO filters** needed.</li>
+                <li>🔥 Boiling is ineffective at this stage.</li>
+            </ul>
+        </div>
+    
+        {% elif 1000 < tds_value <= 2000 %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>❌ <span style="color: #D32F2F;">Unsafe for drinking</span>.</li>
+                <li>🏭 Limited industrial usage.</li>
+                <li>🌾 Can be used for **some non-sensitive crops**.</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>❌ <span style="color: #D32F2F;">Not recommended for drinking</span>.</li>
+                <li>🏭 Industrial treatment is required.</li>
+                <li>💀 Avoid direct human use.</li>
+            </ul>
+        </div>
+    
+        {% else %}
+        <div id="uses-container">
+            <h3>🌿 Other Uses</h3>
+            <ul>
+                <li>🚨 <span style="color: red;">Highly unsafe for any household use</span>.</li>
+                <li>⚙️ Only suitable for **specific industrial applications**.</li>
+                <li>💀 Avoid using for **human or animal consumption**.</li>
+            </ul>
+        </div>
+        <div id="purification-container">
+            <h3>🛠️ Purification Methods</h3>
+            <ul>
+                <li>🚨 <span style="color: red;">No purification method can make this water safe</span>.</li>
+                <li>💀 **Extremely toxic & dangerous**.</li>
+                <li>⚠️ Only for **industrial disposal**.</li>
+            </ul>
+        </div>
+        {% endif %}
+    {% endif %}
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById('uses-button').addEventListener('click', function() {
+        let otherUses = document.getElementById('uses-container');
+        if (otherUses) {
+            otherUses.style.display = (otherUses.style.display === 'none' || otherUses.style.display === '') ? 'block' : 'none';
+        }
+    });
+
+    document.getElementById('purification-button').addEventListener('click', function() {
+        let purificationMethods = document.getElementById('purification-container');
+        if (purificationMethods) {
+            purificationMethods.style.display = (purificationMethods.style.display === 'none' || purificationMethods.style.display === '') ? 'block' : 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

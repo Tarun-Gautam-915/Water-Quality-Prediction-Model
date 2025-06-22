@@ -1,0 +1,107 @@
+/* General body and page styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text color for contrast */
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    color: #ffffff; /* White heading for contrast */
+}
+
+/* Main form section */
+.form-section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.button-container {
+    background-color: #1e1e1e; /* Dark background for buttons */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.button-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Main Button Style */
+.main-button {
+    display: block;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Blue color for main button */
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.main-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Flowchart button styling */
+.flowchart {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.flowchart-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #28a745; /* Green button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.flowchart-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Hidden content styles */
+.hidden-content {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #333333; /* Dark gray background for content */
+    border-radius: 5px;
+}
+
+.hidden-content h3 {
+    font-size: 1.3rem;
+    color: #ffcc00; /* Yellow color for headings */
+}
+
+.hidden-content p {
+    font-size: 1rem;
+    color: #ffffff; /* White text for paragraph */
+    line-height: 1.5;
+}
+
+/* Style for showing content */
+.hidden-content.active {
+    display: block;
+}

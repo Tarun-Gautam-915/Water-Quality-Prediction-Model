@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Center Content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all elements horizontally */
+    justify-content: center;
+    width: 100%;
+}
+
+/* Form Styling */
+form {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Input and Button */
+input {
+    padding: 10px;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005f8a;
+}
+
+/* Result Box */
+.result-box {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Adjust width for responsiveness */
+    text-align: center;
+}
+
+/* Uses & Purification Methods */
+#uses-container, #purification-container {
+    background-color: #e3f2fd;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    width: 90%; /* Adjust width */
+    text-align: center; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+    /* Center the div itself */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* 🔹 Hide Initially */
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
